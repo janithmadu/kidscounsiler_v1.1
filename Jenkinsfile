@@ -1,34 +1,12 @@
 pipeline{
-    agent{
-        label "node"
-    }
+    agent any 
     stages{
-        stage("A"){
-            steps{
-                echo "========executing A========"
+        stage("Build Next JS project"){
+            echo "excecuting NPM"
+            nodejs("NodeJS-NPM"){
+                    bat 'npm install'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
-            }
-        }
+           
     }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
-    }
+}
 }
