@@ -1,5 +1,5 @@
 export interface Card {
     BgImage: string;
-    Title: number;
+    Title: string;
     dis: string;
   }
