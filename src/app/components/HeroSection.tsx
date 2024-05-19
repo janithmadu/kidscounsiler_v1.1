@@ -8,7 +8,7 @@ function HeroSection() {
         {/* Text Section Start */}
         <div className="col-span-5  main-flex-col">
           <h1 className="text-7xl font-bold">
-            Discover Psychological Wellness.
+            Discover Psychological Wellness.sfsdfd
           </h1>
           <p className="text-para-size text-web-text-gray">
             Discover Your Strength, Heal Your Heart, and Transform Your Life:
