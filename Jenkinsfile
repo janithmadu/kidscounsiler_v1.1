@@ -7,8 +7,13 @@ pipeline{
               bat 'npm install'
               bat 'npm run build'
             }
-           }
-           
+           }      
     }
-}
-}
+    }
+
+    stage("Dockerice Application"){
+           steps{
+              bat 'docker build -t ja333/kidcounsiler .'
+            }
+           }      
+    }
