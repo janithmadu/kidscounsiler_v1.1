@@ -17,7 +17,7 @@ pipeline{
            stage("ImagePushToDockerHub"){
            steps{
            
-               sh 'docker login -u janithmadu281@gmail.com -p Asdalink@555
+               sh 'docker login -u janithmadu281@gmail.com -p Asdalink@555'
             }
            }       
     }
