@@ -21,5 +21,15 @@ pipeline{
                 bat 'docker push kidscounsileracr.azurecr.io/kidcounsiler'
            }       
          }
+          stage("DeployApplicationInAKS"){
+           steps{
+
+                  withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                        bat 'kubectl apply -f  aks-deploy-from-acr.yaml '
+                  }
+               
+                
+           }       
+         }
     }
 }

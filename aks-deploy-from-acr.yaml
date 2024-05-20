@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kidscounsiler-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kidscounsiler-application
+  template:
+    metadata:
+      labels:
+        app: kidscounsiler-application
+    spec:
+      containers:
+      - name: kidscounsiler-application-container
+        image: docker pull kidscounsileracr.azurecr.io/kidcounsiler:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+# service type loadbalancer       
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kidscounsiler-application-service
+    k8s-app: kidscounsiler-application-service
+  name: kidscounsiler-application-service
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  type: LoadBalancer
+  selector:
+    app: kidscounsiler-application
