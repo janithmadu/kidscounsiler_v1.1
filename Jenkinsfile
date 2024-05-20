@@ -17,8 +17,10 @@ pipeline{
            stage("ImagePushToDockerHub"){
            steps{
 
-            withCredentials([string(credentialsId: 'DockerHubPass', variable: 'Dockerhub')]) {
-     bat 'docker login -u janithmadu281@gmail.com -p ${Dockerhub}'
+            withCredentials([string(credentialsId: 'DockerHubPass', variable: 'dockerhub')]) {
+               
+
+                bat 'docker login -u janithmadu281@gmail.com -p ${dockerhub}'
            
               
             }
