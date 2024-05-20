@@ -26,7 +26,7 @@ pipeline{
            steps{
 
                   withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                        bat 'kubectl delete deployment kidscounsiler-deployment'
+                        // bat 'kubectl delete deployment kidscounsiler-deployment'
                         bat 'kubectl apply -f  aks-deploy-from-acr.yaml '
                   }
                
