@@ -9,24 +9,17 @@ pipeline{
             }
            }      
     }
-     stage("DockericeApplication"){
+        stage("DockericeApplication"){
            steps{
              bat 'docker build -t ja333/kidcounsiler .'
             }
            }     
-           stage("ImagePushToDockerHub"){
+        stage("ImagePushToDockerHub"){
            steps{
 
-            withCredentials([string(credentialsId: 'DockerHubPass', variable: 'dockerhub')]) {
-               
-
-                bat 'docker login -u janithmadu281@gmail.com -p ${dockerhub}'
-           
-              
-            }
+                bat 'docker login -u janithmadu281@gmail.com -p Asdalink@555'
+                bat 'docker push ja333/kidcounsiler'
            }       
-    }
-
-   
+         }
     }
 }
