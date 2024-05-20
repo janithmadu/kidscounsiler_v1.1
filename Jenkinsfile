@@ -9,11 +9,12 @@ pipeline{
             }
            }      
     }
-    }
-
-    stage("Dockerice Application"){
+     stage("DockericeApplication"){
            steps{
               bat 'docker build -t ja333/kidcounsiler .'
             }
            }      
+    }
+
+   
     }
