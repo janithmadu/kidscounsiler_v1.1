@@ -11,14 +11,14 @@ pipeline{
     }
         stage("DockericeApplication"){
            steps{
-             bat 'docker login kidscounsileracr.azurecr.io -u kidscounsileracr -p qRwJDwr9Jj884+MDqKwB7pD2vi3Ml0x0Rpzq4AeB3X+ACRAnlRMX'
+             bat 'docker login kidscounsileracr.azurecr.io -u kidscounsileracr -p '
              bat 'docker build -t kidscounsileracr.azurecr.io/kidcounsiler .'
             }
            }     
         stage("ImagePushToDockerHub"){
            steps{
 
-                bat 'docker login kidscounsileracr.azurecr.io -u kidscounsileracr -p qRwJDwr9Jj884+MDqKwB7pD2vi3Ml0x0Rpzq4AeB3X+ACRAnlRMX'
+                bat 'docker login kidscounsileracr.azurecr.io -u kidscounsileracr -p '
                 bat 'docker push kidscounsileracr.azurecr.io/kidcounsiler'
            }       
          }
